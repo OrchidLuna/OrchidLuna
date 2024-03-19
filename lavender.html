@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta property="og:title" content="BBC News live•page">
+<meta property="og:description" content="Want to know what's happening around the world? Get the stories from BBC News with the live•page, made by Tiffany Lynch.">
+<meta property="og:image" content="https://lauraorchid.my.id/oglive.jpg">
+<link rel="icon" href="https://storyformer.rd.live.tools.bbc.co.uk/favicon.ico">
+<title>Lavender's Lounge</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body style="background-color:#27062e;">
+<p style="font-family:Helvetica;color:white;">Welcome to BBC News live stream provided by Akamai and displayed using hls.js. Check their schedule <a href="http://bbc.co.uk/schedules/p00fzl6g" target="_blank">here</a> and happy watching!</p>
+<hr>
+<video controls id="lily"></video>
+<script>
+var dahlia = document.getElementById("lily");
+if(Hls.isSupported()) {
+var rose = new Hls();
+rose.loadSource("https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/mobile_wifi_main_sd_abr_v2.m3u8");
+rose.currentLevel = 3;
+rose.attachMedia(dahlia);
+rose.on(Hls.Events.MANIFEST_PARSED,function() {
+dahlia.play();
+});
+}
+</script>
+</body>
+</html>
