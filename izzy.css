@@ -1,0 +1,38 @@
+@font-face {
+font-family: ABeeZee;
+src: url('ABeeZee.woff2');
+font-display: swap;
+}
+body {
+background-color: #16051f;
+font-family: ABeeZee;
+}
+img {
+display: block;
+margin: 0 auto;
+max-width: 70%;
+max-height: 70vh;
+}
+.button {
+color: white;
+text-decoration: none;
+display: flex;
+margin: 0 auto;
+align-items: center;
+justify-content: center;
+font-family: ABeeZee;
+width: 300px; 
+height: 50px;
+border-radius: 5px;
+padding: 7px 5px;
+}
+.button:hover {
+background-color: #590941;
+}
+i {
+padding: 10px;
+}
+h1, p {
+color: white;
+text-align: center;
+}
