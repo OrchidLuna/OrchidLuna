@@ -13,17 +13,23 @@
 <p style="font-family:Helvetica;color:white;">Welcome to BBC News live stream provided by Akamai and displayed using hls.js. Check their schedule <a href="http://bbc.co.uk/schedules/p00fzl6g" target="_blank">here</a> and happy watching!</p>
 <hr>
 <video controls id="lily"></video>
+<p style="font-family:Helvetica;color:white;">Your Local Time: <span id="sunny"></span></p>
 <script>
 var dahlia = document.getElementById("lily");
 if(Hls.isSupported()) {
 var rose = new Hls();
 rose.loadSource("https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/mobile_wifi_main_sd_abr_v2.m3u8");
-rose.currentLevel = 3;
+rose.currentLevel = 1;
 rose.attachMedia(dahlia);
 rose.on(Hls.Events.MANIFEST_PARSED,function() {
 dahlia.play();
 });
 }
+function izzy() {
+const zipp = new Date().toLocaleString();
+document.querySelector('#sunny').textContent = zipp;
+}
+setInterval(izzy, 1000);
 </script>
 </body>
 </html>
