@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width">
 <link rel="icon" href="https://buzz.itv.com/favicon.ico">
-<title>What's On Maneuver?</title>
+<title>Maneuver Live Page</title>
 <script>
 function lunarMusic() {
 fetch('https://d36nr0u3xmc4mm.cloudfront.net/index.php/api/streaming/status/7024/2348c62ead2082a25b4573ed601473a3/SV22BR').then(response => response.json()).then(data => {
@@ -16,8 +16,9 @@ setInterval(lunarMusic, 10000);
 </head>
 <body onload="lunarMusic()">
 <img src="https://derpicdn.net/img/download/2025/1/12/3526026.jpg">
-<h1>What's On Maneuver by Laura Orchid</h1>
-<p>Halo! Laman ini akan menampilkan apa yang sedang diputar di Maneuver Radio. Judul lagu disegarkan setiap 10 detik.</p>
+<h1>Maneuver Live Page by Laura Orchid</h1>
+<p>Halo! Laman ini memberi tempat untuk mendengarkan Maneuver Radio secara langsung. Judul lagu disegarkan setiap 10 detik.</p>
+<audio controls src="https://5befd03f.nip.io/live">
 <p>Sedang diputar: <span id="waves"></span></p>
 <i>Laman ini tidak terafiliasi dengan Maneuver Media.</i>
 </body>
