@@ -7,12 +7,7 @@
 <script>
 function lunarMusic() {
 fetch('https://d36nr0u3xmc4mm.cloudfront.net/index.php/api/streaming/status/7024/2348c62ead2082a25b4573ed601473a3/SV22BR').then(response => response.json()).then(data => {
-console.log("Full response:", data);
-if (data.currentTrack) {
-document.getElementById('waves').innerHTML = data.currentTrack;
-} else {
-document.getElementById('waves').innerHTML = "Tidak ada informasi lagu tersedia.";
-}
+document.getElementById('waves').innerHTML = data.currentTrack || "Tidak ada informasi lagu untuk saat ini.";
 }).catch(error => console.error('Error fetching data:', error));
 }
 setInterval(lunarMusic, 10000);
@@ -23,7 +18,7 @@ setInterval(lunarMusic, 10000);
 <img src="https://static.wixstatic.com/media/49db85_82a44733c8eb440ea45928afb0f24b07~mv2.jpeg/v1/fill/w_254,h_191,fp_0.50_0.50,q_90,enc_avif,quality_auto/49db85_82a44733c8eb440ea45928afb0f24b07~mv2.jpeg">
 <h1>Maneuver Live Page by Evernight</h1>
 <p>Halo! Laman ini memberi tempat untuk mendengarkan Maneuver Radio secara langsung. Judul lagu disegarkan setiap 10 detik.</p>
-<audio controls src="http://servidor20-5.brlogic.com:7024/live"></audio>
+<audio controls src="https://tranzhex.net/live"></audio>
 <p>Sedang diputar: <span id="waves"></span></p>
 <i>Laman ini tidak terafiliasi dengan Maneuver Media.</i>
 </body>
