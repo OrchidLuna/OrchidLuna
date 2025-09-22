@@ -7,9 +7,12 @@
 <script>
 function lunarMusic() {
 fetch('https://d36nr0u3xmc4mm.cloudfront.net/index.php/api/streaming/status/7024/2348c62ead2082a25b4573ed601473a3/SV22BR').then(response => response.json()).then(data => {
-const content = JSON.parse(data.objects[0].content);
-const track = content.currentTrack;
-document.getElementById('waves').innerHTML = track;
+console.log("Full response:", data);
+if (data.currentTrack) {
+document.getElementById('waves').innerHTML = data.currentTrack;
+} else {
+document.getElementById('waves').innerHTML = "Tidak ada informasi lagu tersedia.";
+}
 }).catch(error => console.error('Error fetching data:', error));
 }
 setInterval(lunarMusic, 10000);
