@@ -16,7 +16,7 @@ var dahlia = document.getElementById("lily");
 if(Hls.isSupported()) {
 var rose = new Hls();
 rose.loadSource("https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/mobile_wifi_main_sd_abr_v2.m3u8");
-rose.currentLevel = 2;
+rose.currentLevel = 3;
 rose.attachMedia(dahlia);
 rose.on(Hls.Events.MANIFEST_PARSED,function() {
 dahlia.play();
