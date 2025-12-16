@@ -5,14 +5,15 @@
 <link rel="icon" href="https://vivo.tools.bbc.co.uk/favicon.ico">
 <title>Tiffany's Uplink</title>
 <script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.light.min.js"></script>
-<style>p, a { color: white; font-family: sans-serif; } .yunli { padding: 10px; } .yunli.active { background-color: #0ac914; color: white; font-weight: bold }</style>
+<style>p, a, h2, h3 { color: white; font-family: sans-serif; } .yunli { padding: 10px; } .yunli.active { background-color: #0ac914; color: white; font-weight: bold }</style>
 </head>
 <body style="background-color:#27062e;">
-<p><a href="live.html">This</a> is live page for BBC News clean feeds, ranging from events, sports, and sometimes things that's not supposed to be accessible by the public. Note: if you get infinite spinning, that means the feed is off-air. Fun fact, Feed 051 is the one that's commonly used, and these are Worldwide feeds. For UK feeds, click <a href="ukfeeds.html">here.</a></p>
+<p><a href="live.html">This</a> is live page for BBC News clean feeds, ranging from events, sports, and sometimes things that's not supposed to be accessible by the public. Note: if you get infinite spinning, that means the feed is off-air. Fun fact, Feed 051 is the one that's commonly used, and these are Worldwide feeds. For UK feeds, click <a href="ukfeeds.html">here</a>, and anytime AWS broke down for their infamous outages, visit the alternate page <a href="wwfeeds-akamai.html">here.</a></p>
 <hr>
 <video controls id="lily"></video>
     <p>Your Local Time: <span id="sunny"></span>, London Time: <span id="arlan"></span></p>
 <div class="selector">
+	<h2>Worldwide BBC Stream Feeds</h2>
 	<button class="yunli" onclick="playStream('os1', this)">Feed 051</button>
 	<button class="yunli" onclick="playStream('os2', this)">Feed 052</button>
 	<button class="yunli" onclick="playStream('os3', this)">Feed 053</button>
@@ -22,19 +23,28 @@
 	<button class="yunli" onclick="playStream('os7', this)">Feed 057</button>
 	<button class="yunli" onclick="playStream('os8', this)">Feed 058</button>
 	<button class="yunli" onclick="playStream('os9', this)">Feed 059</button>
+	<h3>BBC World Service Stream Feeds</h3>
+	<button class="yunli" onclick="playStream('os10', this)">Feed 05</button>
+<button class="yunli" onclick="playStream('os11', this)">Feed 06</button>
+<button class="yunli" onclick="playStream('os12', this)">Feed 07</button>
+<button class="yunli" onclick="playStream('os13', this)">Feed 08</button>
 </div>
 <script>
 var dahlia = document.getElementById("lily");
 const streams = {
-	os1: 'https://ve-hls-pushb-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:ww_bbc_stream_051/mobile_wifi_main_sd_abr_v2.m3u8',
-	os2: 'https://ve-hls-pushb-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:ww_bbc_stream_052/mobile_wifi_main_sd_abr_v2.m3u8',
-	os3: 'https://ve-hls-pushb-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:ww_bbc_stream_053/mobile_wifi_main_sd_abr_v2.m3u8',
-	os4: 'https://ve-hls-pushb-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:ww_bbc_stream_054/mobile_wifi_main_sd_abr_v2.m3u8',
-	os5: 'https://ve-hls-pushb-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:ww_bbc_stream_055/mobile_wifi_main_sd_abr_v2.m3u8',
-	os6: 'https://ve-hls-pushb-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:ww_bbc_stream_056/mobile_wifi_main_sd_abr_v2.m3u8',
-	os7: 'https://ve-hls-pushb-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:ww_bbc_stream_057/mobile_wifi_main_sd_abr_v2.m3u8',
-	os8: 'https://ve-hls-pushb-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:ww_bbc_stream_058/mobile_wifi_main_sd_abr_v2.m3u8',
-	os9: 'https://ve-hls-pushb-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:ww_bbc_stream_059/mobile_wifi_main_sd_abr_v2.m3u8'
+	os1: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_051/mobile_wifi_main_sd_abr_v2.m3u8',
+	os2: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_052/mobile_wifi_main_sd_abr_v2.m3u8',
+	os3: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_053/mobile_wifi_main_sd_abr_v2.m3u8',
+	os4: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_054/mobile_wifi_main_sd_abr_v2.m3u8',
+	os5: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_055/mobile_wifi_main_sd_abr_v2.m3u8',
+	os6: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_056/mobile_wifi_main_sd_abr_v2.m3u8',
+	os7: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_057/mobile_wifi_main_sd_abr_v2.m3u8',
+	os8: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_058/mobile_wifi_main_sd_abr_v2.m3u8',
+	os9: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_059/mobile_wifi_main_sd_abr_v2.m3u8',
+	os10: 'https://vs-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_05/mobile_wifi_main_sd_abr_v2.m3u8',
+    os11: 'https://vs-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_06/mobile_wifi_main_sd_abr_v2.m3u8',
+    os12: 'https://vs-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_07/mobile_wifi_main_sd_abr_v2.m3u8',
+    os13: 'https://vs-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_08/mobile_wifi_main_sd_abr_v2.m3u8'
 };
 let rose;
 function playStream(key, buttonElement) {
