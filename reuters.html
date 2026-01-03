@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="https://cdn1.agency.thomsonreuters.com/live-embed/favicon.ico">
+<title>Reuters Feeds</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.light.min.js"></script>
+<style>.video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 640px; } .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; } p, a { color: white; font-family: sans-serif; } .yunli { padding: 10px; } .yunli.active { background-color: #0ac914; color: white; font-weight: bold }</style>
+</head>
+<body style="background-color:#27062e;">
+<p>This is Program feeds from Reuters news agency, from 1 all the way to 6, in HD, 1Mbps.</p>
+<hr>
+<div class="video-container">
+<video controls id="lily"></video>
+</div>
+    <p>Current Time: <span id="sunny"></span></p>
+<div class="selector">
+	<button class="yunli" onclick="playStream('os1', this)">LiveService</button>
+	<button class="yunli" onclick="playStream('os2', this)">Program 1</button>
+	<button class="yunli" onclick="playStream('os3', this)">Program 2</button>
+	<button class="yunli" onclick="playStream('os4', this)">Program 3</button>
+	<button class="yunli" onclick="playStream('os5', this)">Program 4</button>
+	<button class="yunli" onclick="playStream('os6', this)">Program 5</button>
+	<button class="yunli" onclick="playStream('os7', this)">Program 6</button>
+</div>
+<script>
+var dahlia = document.getElementById("lily");
+const streams = {
+	os1: 'https://d1qvkrpvk32u24.cloudfront.net/RLS/RLS/playlist.m3u8',
+	os2: 'https://d3iwkuprshvnfk.cloudfront.net/RLSP1/HD50_500kb/chunklist.m3u8',
+	os3: 'https://d3iwkuprshvnfk.cloudfront.net/RLSP2/HD50_500kb/chunklist.m3u8',
+	os4: 'https://d3iwkuprshvnfk.cloudfront.net/RLSP3/HD50_500kb/chunklist.m3u8',
+	os5: 'https://d3iwkuprshvnfk.cloudfront.net/RLSP4/HD50_500kb/chunklist.m3u8',
+	os6: 'https://d3iwkuprshvnfk.cloudfront.net/RLSP5/HD50_500kb/chunklist.m3u8',
+	os7: 'https://d3iwkuprshvnfk.cloudfront.net/RLSP6/HD50_500kb/chunklist.m3u8'
+};
+let rose;
+function playStream(key, buttonElement) {
+	const url = streams[key];
+	document.querySelectorAll('.yunli').forEach(btn => btn.classList.remove('active'));
+	buttonElement.classList.add('active');
+if(Hls.isSupported()) {
+	if (rose) {
+		rose.destroy();
+	}
+rose = new Hls();
+rose.loadSource(url);
+rose.attachMedia(dahlia);
+rose.on(Hls.Events.MANIFEST_PARSED,function() {
+dahlia.play();
+});
+}
+}
+function asta() {
+const localTime = new Date().toUTCString('en-GB');
+document.querySelector('#sunny').textContent = localTime;
+}
+setInterval(asta, 1000);
+window.onload = () => document.querySelector('.yunli').click();
+</script>
+</body>
+</html>

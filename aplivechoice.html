@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="https://vivo.tools.bbc.co.uk/favicon.ico">
+<title>Tiffany's Uplink</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.light.min.js"></script>
+<style>.video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 640px; } .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; } p, a { color: white; font-family: sans-serif; } .yunli { padding: 10px; } .yunli.active { background-color: #0ac914; color: white; font-weight: bold }</style>
+</head>
+<body style="background-color:#27062e;">
+<p>This is Live Choice feeds from Associated Press news agency, from 1 all the way to 6, in SD.</p>
+<hr>
+<video controls id="lily"></video>
+    <p>Current Time: <span id="sunny"></span></p>
+<div class="selector">
+	<button class="yunli" onclick="playStream('os1', this)">Direct</button>
+	<button class="yunli" onclick="playStream('os2', this)">Live Choice 1</button>
+	<button class="yunli" onclick="playStream('os3', this)">Live Choice 2</button>
+	<button class="yunli" onclick="playStream('os4', this)">Live Choice 3</button>
+	<button class="yunli" onclick="playStream('os5', this)">Live Choice 4</button>
+	<button class="yunli" onclick="playStream('os6', this)">Live Choice 5</button>
+	<button class="yunli" onclick="playStream('os7', this)">Live Choice 6</button>
+</div>
+<script>
+var dahlia = document.getElementById("lily");
+const streams = {
+	os1: 'https://streaming-a-806.cdn.nextologies.com/Ugg7ohj1KOol2v04/live_LZhmmII6x8GR7I3ig3zQ/AP_FEED_1_1000k/chunks.m3u8',
+	os2: 'https://streaming-a-806.cdn.nextologies.com/4M2gqURXdsxuPj01/live_LZhmmII6x8GR7I3ig3zQ/AP_FEED_2_1000k/chunks.m3u8',
+	os3: 'https://streaming-a-806.cdn.nextologies.com/SCNek2Fa6TFmNF02/live_LZhmmII6x8GR7I3ig3zQ/AP_FEED_3_1000k/chunks.m3u8',
+	os4: 'https://streaming-a-806.cdn.nextologies.com/eZWEYDN1QYcHsM03/live_LZhmmII6x8GR7I3ig3zQ/AP_FEED_4_1000k/chunks.m3u8',
+	os5: 'https://streaming-a-806.cdn.nextologies.com/dd20476021b1fc5dd4fe0e50fabdc2bz/live_LZhmmII6x8GR7I3ig3zQ/AP_LC04_1000k/chunks.m3u8',
+	os6: 'https://streaming-a-806.cdn.nextologies.com/b88e314b3e2b62b5756ba2fc95289f21/live_LZhmmII6x8GR7I3ig3zQ/5525b517_AP_LC05_2500k/chunks.m3u8',
+	os7: 'https://streaming-a-806.cdn.nextologies.com/38dafadc68316650d32c7e974332e5b8/live_LZhmmII6x8GR7I3ig3zQ/8525b51D_AP_LC06_2500k/chunks.m3u8'
+};
+let rose;
+function playStream(key, buttonElement) {
+	const url = streams[key];
+	document.querySelectorAll('.yunli').forEach(btn => btn.classList.remove('active'));
+	buttonElement.classList.add('active');
+if(Hls.isSupported()) {
+	if (rose) {
+		rose.destroy();
+	}
+rose = new Hls();
+rose.loadSource(url);
+rose.attachMedia(dahlia);
+rose.on(Hls.Events.MANIFEST_PARSED,function() {
+dahlia.play();
+});
+}
+}
+function asta() {
+const localTime = new Date().toUTCString('en-GB');
+document.querySelector('#sunny').textContent = localTime;
+}
+setInterval(asta, 1000);
+window.onload = () => document.querySelector('.yunli').click();
+</script>
+</body>
+</html>
