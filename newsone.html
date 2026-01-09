@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="https://abcnews.extremereach.com/favicon.ico">
+<title>ABC NewsOne Feeds</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.light.min.js"></script>
+<style>.video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 640px; } .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; } p, a { color: white; font-family: sans-serif; } .yunli { padding: 10px; } .yunli.active { background-color: #0ac914; color: white; font-weight: bold }</style>
+</head>
+<body style="background-color:#27062e;">
+<p>This is NewsOne feeds from the ABC, from 1 all the way to 5, in HD</p>
+<hr>
+<div class="video-container">
+<video controls id="lily"></video>
+</div>
+    <p>Current Time: <span id="sunny"></span></p>
+<div class="selector">
+	<button class="yunli" onclick="playStream('os1', this)">Hudson 1</button>
+	<button class="yunli" onclick="playStream('os2', this)">Hudson 2</button>
+	<button class="yunli" onclick="playStream('os3', this)">Hudson 3</button>
+	<button class="yunli" onclick="playStream('os4', this)">Hudson 4</button>
+	<button class="yunli" onclick="playStream('os5', this)">Hudson 5</button>
+</div>
+<script>
+var dahlia = document.getElementById("lily");
+const streams = {
+	os1: 'https://abcnews-streams.akamaized.net/hls/live/2023571/newsonehudson1/master_2500.m3u8',
+	os2: 'https://abcnews-streams.akamaized.net/hls/live/2023572/newsonehudson2/master_2500.m3u8',
+	os3: 'https://abcnews-streams.akamaized.net/hls/live/2023573/newsonehudson3/master_2500.m3u8',
+	os4: 'https://abcnews-streams.akamaized.net/hls/live/2023574/newsonehudson4/master_4000.m3u8',
+	os5: 'https://abcnews-streams.akamaized.net/hls/live/2104083/newsonehudson5/master_4000.m3u8'
+};
+let rose;
+function playStream(key, buttonElement) {
+	const url = streams[key];
+	document.querySelectorAll('.yunli').forEach(btn => btn.classList.remove('active'));
+	buttonElement.classList.add('active');
+if(Hls.isSupported()) {
+	if (rose) {
+		rose.destroy();
+	}
+rose = new Hls();
+rose.loadSource(url);
+rose.attachMedia(dahlia);
+rose.on(Hls.Events.MANIFEST_PARSED,function() {
+dahlia.play();
+});
+}
+}
+function asta() {
+const localTime = new Date().toUTCString('en-GB');
+document.querySelector('#sunny').textContent = localTime;
+}
+setInterval(asta, 1000);
+window.onload = () => document.querySelector('.yunli').click();
+</script>
+</body>
+</html>
