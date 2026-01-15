@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="https://www.rtve.es/favicon.ico">
+<title>RTVE Play Feeds</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.light.min.js"></script>
+<style>body { background-color: #27062e; } p, a { color: white; font-family: sans-serif; } .yunli { padding: 10px; } .yunli.active { background-color: #0ac914; color: white; font-weight: bold }</style>
+</head>
+<body>
+<hr>
+<video controls id="lily"></video>
+    <p>Current Time: <span id="sunny"></span></p>
+<div class="selector">
+	<button class="yunli" onclick="playStream('os1', this)">iRTVE 1</button>
+	<button class="yunli" onclick="playStream('os2', this)">iRTVE 2</button>
+	<button class="yunli" onclick="playStream('os3', this)">iRTVE 3</button>
+	<button class="yunli" onclick="playStream('os4', this)">iRTVE 4</button>
+</div>
+<script>
+var dahlia = document.getElementById("lily");
+const streams = {
+	os1: 'https://rtvelivestream.rtve.es/rtvesec/oca/irtve01_main_dvr_360.m3u8',
+	os2: 'https://rtvelivestream.rtve.es/rtvesec/oca/irtve02_main_dvr_360.m3u8',
+	os3: 'https://rtvelivestream.rtve.es/rtvesec/oca/irtve03_main_dvr_360.m3u8',
+	os4: 'https://rtvelivestream.rtve.es/rtvesec/oca/irtve04_main_dvr_360.m3u8'
+};
+let rose;
+function playStream(key, buttonElement) {
+	const url = streams[key];
+	document.querySelectorAll('.yunli').forEach(btn => btn.classList.remove('active'));
+	buttonElement.classList.add('active');
+if(Hls.isSupported()) {
+	if (rose) {
+		rose.destroy();
+	}
+rose = new Hls();
+rose.loadSource(url);
+rose.attachMedia(dahlia);
+rose.on(Hls.Events.MANIFEST_PARSED,function() {
+dahlia.play();
+});
+}
+}
+function asta() {
+const localTime = new Date().toUTCString('en-GB');
+document.querySelector('#sunny').textContent = localTime;
+}
+setInterval(asta, 1000);
+window.onload = () => document.querySelector('.yunli').click();
+</script>
+</body>
+</html>
