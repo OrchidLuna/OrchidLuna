@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="https://static-oaos.rtbf.be/favicon/rtbf-actus-32.png">
+<title>RTBF Auvio Feeds</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>
+<style>body { background-color: #27062e; } p, a { color: white; font-family: sans-serif; } .yunli { padding: 10px; } .yunli.active { background-color: #0ac914; color: white; font-weight: bold }</style>
+</head>
+<body>
+<hr>
+<video controls id="lily"></video>
+    <p>Current Time: <span id="sunny"></span></p>
+<div class="selector">
+	<button class="yunli" onclick="playStream('os1', this)">La Première/Live5</button>
+	<button class="yunli" onclick="playStream('os2', this)">VivaCité/Live26</button>
+</div>
+<script>
+var dahlia = document.getElementById("lily");
+const streams = {
+	os1: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L5/3264727f/d0a3cb71.isml/.m3u8',
+	os2: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L26/04017538/58ee094f.isml/.m3u8'
+};
+let rose;
+function playStream(key, buttonElement) {
+	const url = streams[key];
+	document.querySelectorAll('.yunli').forEach(btn => btn.classList.remove('active'));
+	buttonElement.classList.add('active');
+if(Hls.isSupported()) {
+	if (rose) {
+		rose.destroy();
+	}
+rose = new Hls();
+rose.loadSource(url);
+rose.attachMedia(dahlia);
+rose.on(Hls.Events.MANIFEST_PARSED,function() {
+dahlia.play();
+});
+}
+}
+function asta() {
+const localTime = new Date().toUTCString('en-GB');
+document.querySelector('#sunny').textContent = localTime;
+}
+setInterval(asta, 1000);
+window.onload = () => document.querySelector('.yunli').click();
+</script>
+</body>
+</html>
