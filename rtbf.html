@@ -5,21 +5,25 @@
 <link rel="icon" href="https://static-oaos.rtbf.be/favicon/rtbf-actus-32.png">
 <title>RTBF Auvio Feeds</title>
 <script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>
-<style>body { background-color: #27062e; } p, a { color: white; font-family: sans-serif; } .yunli { padding: 10px; } .yunli.active { background-color: #0ac914; color: white; font-weight: bold }</style>
+<style>body { background-color: #27062e; } .video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 640px; } .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; } p, a { color: white; font-family: sans-serif; } .yunli { padding: 10px; } .yunli.active { background-color: #0ac914; color: white; font-weight: bold }</style>
 </head>
 <body>
 <hr>
+<div class="video-container">
 <video controls id="lily"></video>
+</div>
     <p>Current Time: <span id="sunny"></span></p>
 <div class="selector">
 	<button class="yunli" onclick="playStream('os1', this)">La Première/Live5</button>
-	<button class="yunli" onclick="playStream('os2', this)">VivaCité/Live26</button>
+	<button class="yunli" onclick="playStream('os2', this)">VivaCité Feed 1/Live26</button>
+	<button class="yunli" onclick="playStream('os3', this)">VivaCité Feed 2/Live8</button>
 </div>
 <script>
 var dahlia = document.getElementById("lily");
 const streams = {
 	os1: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L5/3264727f/d0a3cb71.isml/.m3u8',
-	os2: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L26/04017538/58ee094f.isml/.m3u8'
+	os2: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L26/04017538/58ee094f.isml/.m3u8',
+	os3: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L8/0397124b/a910e50f.isml/.m3u8'
 };
 let rose;
 function playStream(key, buttonElement) {
