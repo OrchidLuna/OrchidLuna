@@ -17,13 +17,15 @@
 	<button class="yunli" onclick="playStream('os1', this)">La Première/Live5</button>
 	<button class="yunli" onclick="playStream('os2', this)">Mons/Live8</button>
 	<button class="yunli" onclick="playStream('os3', this)">Bruxelles/Live26</button>
+	<button class="yunli" onclick="playStream('os4', this)">NocStream-DMZ-01-DRM/Live26</button>
 </div>
 <script>
 var dahlia = document.getElementById("lily");
 const streams = {
 	os1: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L5/3264727f/d0a3cb71.isml/.m3u8',
-	os2: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L8/0397124b/a910e50f.isml/.m3u8',
-	os3: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L26/04017538/58ee094f.isml/.m3u8'
+	os2: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L8/0397124b/40ff4c7a.isml/.m3u8',
+	os3: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L26/04017538/58ee094f.isml/.m3u8',
+	os4: 'https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L26/2731ce3a/96b2ceb2.isml/.m3u8'
 };
 let rose;
 function playStream(key, buttonElement) {
