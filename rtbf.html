@@ -36,7 +36,7 @@ if(Hls.isSupported()) {
 	if (rose) {
 		rose.destroy();
 	}
-rose = new Hls();
+rose = new Hls({ debug: true });
 rose.loadSource(url);
 rose.attachMedia(dahlia);
 rose.on(Hls.Events.MANIFEST_PARSED,function() {
