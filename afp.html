@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="https://www.afp.com/themes/custom/afp9/assets/images/favicon_afp.com_201120.ico">
+<title>AFP TV Live Multiview</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.light.min.js"></script>
+<style>body { background-color: #27062e; }  .video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 640px; } .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; } p, a { color: white; font-family: sans-serif; }</style>
+</head>
+<body>
+<hr>
+<div class="video-container">
+<video controls id="lily"></video>
+</div>
+<p>Your Local Time: <span id="sunny"></span></p>
+<script>
+var dahlia = document.getElementById("lily");
+if(Hls.isSupported()) {
+var rose = new Hls();
+rose.loadSource("https://afp-paris.akamaized.net/hls/live/596828/afpb/1.m3u8");
+rose.attachMedia(dahlia);
+rose.on(Hls.Events.MANIFEST_PARSED,function() {
+dahlia.play();
+});
+}
+function izzy() {
+const zipp = new Date().toUTCString('en-GB');
+document.querySelector('#sunny').textContent = zipp;
+}
+setInterval(izzy, 1000);
+</script>
+</body>
+</html>
