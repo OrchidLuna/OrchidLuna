@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="https://iplayer-web.files.bbci.co.uk/page-builder/58.0.0/img/icons/favicon.ico">
+<title>BBC One Live</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>
+<style>body { background-color: #27062e; }  .video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 640px; } .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; } p, a { color: white; font-family: sans-serif; }</style>
+</head>
+<body>
+<hr>
+<div class="video-container">
+<video controls id="lily"></video>
+</div>
+<p>London Time: <span id="sunny"></span></p>
+<p>Note: The stream is delayed by 45 seconds plus the time it takes to buffer the feed on your end. Find out on today's schedule <a target="_blank" href="https://www.bbc.co.uk/schedules/p00fzl6p">here.</a></p>
+<script>
+var dahlia = document.getElementById("lily");
+if(Hls.isSupported()) {
+var rose = new Hls();
+rose.loadSource("https://streamer.nexyl.uk/5c858268-a93b-45f8-9e82-41d66b526d6c_output_0.m3u8");
+rose.attachMedia(dahlia);
+rose.on(Hls.Events.MANIFEST_PARSED,function() {
+dahlia.play();
+});
+}
+function izzy() {
+	const options = {
+    timeZone: 'Europe/London', 
+    year: 'numeric', 
+    month: 'numeric', 
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+};
+const zipp = new Date().toLocaleString('en-GB', options);
+document.querySelector('#sunny').textContent = zipp;
+}
+setInterval(izzy, 1000);
+</script>
+</body>
+</html>
