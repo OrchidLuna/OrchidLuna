@@ -34,19 +34,19 @@
 <script>
 var dahlia = document.getElementById("lily");
 const streams = {
-	os1: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_051/iptv_hd_abr_v1.m3u8',
-	os2: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_052/iptv_hd_abr_v1.m3u8',
-	os3: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_053/iptv_hd_abr_v1.m3u8',
-	os4: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_054/iptv_hd_abr_v1.m3u8',
-	os5: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_055/iptv_hd_abr_v1.m3u8',
-	os6: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_056/iptv_hd_abr_v1.m3u8',
-	os7: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_057/iptv_hd_abr_v1.m3u8',
-	os8: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_058/iptv_hd_abr_v1.m3u8',
-	os9: 'https://ve-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_059/iptv_hd_abr_v1.m3u8',
-	os10: 'https://vs-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_05/iptv_hd_abr_v1.m3u8',
-    os11: 'https://vs-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_06/iptv_hd_abr_v1.m3u8',
-    os12: 'https://vs-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_07/mobile_wifi_main_sd_abr_v2.m3u8',
-    os13: 'https://vs-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_08/iptv_hd_abr_v1.m3u8'
+	os1: 'https://ve-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_051/iptv_hd_abr_v1.m3u8',
+	os2: 'https://ve-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_052/iptv_hd_abr_v1.m3u8',
+	os3: 'https://ve-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_053/iptv_hd_abr_v1.m3u8',
+	os4: 'https://ve-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_054/iptv_hd_abr_v1.m3u8',
+	os5: 'https://ve-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_055/iptv_hd_abr_v1.m3u8',
+	os6: 'https://ve-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_056/iptv_hd_abr_v1.m3u8',
+	os7: 'https://ve-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_057/iptv_hd_abr_v1.m3u8',
+	os8: 'https://ve-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_058/iptv_hd_abr_v1.m3u8',
+	os9: 'https://ve-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:ww_bbc_stream_059/iptv_hd_abr_v1.m3u8',
+	os10: 'https://vs-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_05/iptv_hd_abr_v1.m3u8',
+    os11: 'https://vs-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_06/iptv_hd_abr_v1.m3u8',
+    os12: 'https://vs-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_07/mobile_wifi_main_sd_abr_v2.m3u8',
+    os13: 'https://vs-hls-pushb-ww.live.fastly.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:world_service_stream_08/iptv_hd_abr_v1.m3u8'
 };
 let rose;
 function playStream(key, buttonElement) {
