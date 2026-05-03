@@ -26,15 +26,15 @@
 <script>
 var dahlia = document.getElementById("lily");
 const streams = {
-	os1: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_051/mobile_wifi_main_sd_abr_v2.m3u8',
-	os2: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_052/mobile_wifi_main_sd_abr_v2.m3u8',
-	os3: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_053/mobile_wifi_main_sd_abr_v2.m3u8',
-	os4: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_054/mobile_wifi_main_sd_abr_v2.m3u8',
-	os5: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_055/mobile_wifi_main_sd_abr_v2.m3u8',
-	os6: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_056/mobile_wifi_main_sd_abr_v2.m3u8',
-	os7: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_057/mobile_wifi_main_sd_abr_v2.m3u8',
-	os8: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_058/mobile_wifi_main_sd_abr_v2.m3u8',
-	os9: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_059/mobile_wifi_main_sd_abr_v2.m3u8'
+	os1: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_051/iptv_hd_abr_v1.m3u8',
+	os2: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_052/iptv_hd_abr_v1.m3u8',
+	os3: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_053/iptv_hd_abr_v1.m3u8',
+	os4: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_054/iptv_hd_abr_v1.m3u8',
+	os5: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_055/iptv_hd_abr_v1.m3u8',
+	os6: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_056/iptv_hd_abr_v1.m3u8',
+	os7: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_057/iptv_hd_abr_v1.m3u8',
+	os8: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_058/iptv_hd_abr_v1.m3u8',
+	os9: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_059/iptv_hd_abr_v1.m3u8'
 };
 let rose;
 function playStream(key, buttonElement) {
