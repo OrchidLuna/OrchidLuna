@@ -59,7 +59,6 @@ if(Hls.isSupported()) {
 	}
 rose = new Hls();
 rose.loadSource(url);
-rose.currentLevel = 3;
 rose.attachMedia(dahlia);
 rose.on(Hls.Events.MANIFEST_PARSED,function() {
 dahlia.play();
