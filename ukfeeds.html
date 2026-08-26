@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width">
 <link rel="icon" href="https://vivo.tools.bbc.co.uk/favicon.ico">
 <title>Tiffany's Uplink</title>
-<script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.light.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dashjs/dist/modern/umd/dash.all.min.js"></script>
 <style>body { background-color: #27062e; } p, a { color: white; font-family: sans-serif; } .yunli { padding: 10px; } .yunli.active { background-color: #0ac914; color: white; font-weight: bold }</style>
 </head>
 <body>
@@ -26,32 +26,27 @@
 <script>
 var dahlia = document.getElementById("lily");
 const streams = {
-	os1: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_051/iptv_hd_abr_v1.m3u8',
-	os2: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_052/iptv_hd_abr_v1.m3u8',
-	os3: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_053/iptv_hd_abr_v1.m3u8',
-	os4: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_054/iptv_hd_abr_v1.m3u8',
-	os5: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_055/iptv_hd_abr_v1.m3u8',
-	os6: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_056/iptv_hd_abr_v1.m3u8',
-	os7: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_057/iptv_hd_abr_v1.m3u8',
-	os8: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_058/iptv_hd_abr_v1.m3u8',
-	os9: 'https://ve-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_059/iptv_hd_abr_v1.m3u8'
+	os1: 'https://ve-cmaf-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_051/hevc_iptv_hd_abr_v1.mpd',
+	os2: 'https://ve-cmaf-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_052/hevc_iptv_hd_abr_v1.mpd',
+	os3: 'https://ve-cmaf-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_053/hevc_iptv_hd_abr_v1.mpd',
+	os4: 'https://ve-cmaf-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_054/hevc_iptv_hd_abr_v1.mpd',
+	os5: 'https://ve-cmaf-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_055/hevc_iptv_hd_abr_v1.mpd',
+	os6: 'https://ve-cmaf-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_056/hevc_iptv_hd_abr_v1.mpd',
+	os7: 'https://ve-cmaf-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_057/hevc_iptv_hd_abr_v1.mpd',
+	os8: 'https://ve-cmaf-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_058/hevc_iptv_hd_abr_v1.mpd',
+	os9: 'https://ve-cmaf-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:uk_bbc_stream_059/hevc_iptv_hd_abr_v1.mpd'
 };
-let rose;
+let zhezhi;
 function playStream(key, buttonElement) {
 	const url = streams[key];
 	document.querySelectorAll('.yunli').forEach(btn => btn.classList.remove('active'));
 	buttonElement.classList.add('active');
-if(Hls.isSupported()) {
-	if (rose) {
-		rose.destroy();
+if(dashjs.supportsMediaSource()) {
+	if (zhezhi) {
+		zhezhi.reset();
 	}
-rose = new Hls();
-rose.loadSource(url);
-rose.currentLevel = 3;
-rose.attachMedia(dahlia);
-rose.on(Hls.Events.MANIFEST_PARSED,function() {
-dahlia.play();
-});
+zhezhi = dashjs.MediaPlayer().create();
+zhezhi.initialize(document.querySelector("#lily"), url, true);
 }
 }
 function asta() {
